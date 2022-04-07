@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<main>
+  <section class="section-hero section-hero-first-time">
+    <div class="hero">
+      <div class="hero-text-box">
+        <h2 class="heading-primary heading-primary-first-time">Set {{friendly_exchange_name}} API key</h2>
+      </div>
+    </div>
+  </section>
+
+<section class="section-first-time-form">
+  <section class="section-first-time">
+    <div class="container">
+      {% if message_to_return_to_user is not none %}   
+    <h2 class="api-set-alert api-set-alert-success" role="alert">{{message_to_return_to_user}}</h2>
+{% else %}
+{% endif %}
+
+<br><br>
+
+
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    {{ form.form_entered_api_key_plaintext.label (class_="form-timezone")}}
+    <br>
+    <div class="api-box">
+      {{form.form_entered_api_key_plaintext}}
+      <div class="api-where"><ion-icon class="question-icon" name="help-circle-outline"></ion-icon><img src="{{ url_for('static', filename='img/api-key-example.jpg') }}" class="hidden-img" /></div>
+    </div>
+    <br>
+    {{ form.form_entered_api_secret_plaintext.label (class_="form-timezone")}} 
+    <br>
+    <div class="api-box">
+      {{form.form_entered_api_secret_plaintext}}
+      <div class="api-where"><ion-icon class="question-icon" name="help-circle-outline"></ion-icon><img src="{{ url_for('static', filename='img/api-key-secret.jpg') }}" class="hidden-img" /></div>
+    </div>
+    <br>
+    {{ form.form_entered_api_passphrase_plaintext.label (class_="form-timezone")}} 
+    <br>
+    <div class="api-box">
+      {{form.form_entered_api_passphrase_plaintext}}
+      <div class="api-where"><ion-icon class="question-icon" name="help-circle-outline"></ion-icon><img src="{{ url_for('static', filename='img/api-key-passphrase-example.jpg') }}" class="hidden-img" /></div>
+    </div>
+    <br>
+    {{form.form_entered_api_key_expires_length.label (class_="form-timezone")}}  
+    <br>
+    {{form.form_entered_api_key_expires_length}}
+    <br>
+    <p class="step-description-3"> Tip: Keys can be manually deleted at any time using the button below.</p>
+    <br>
+    {{ form.submit() }}
+</form>
+
+{% if meta_data_to_return_to_user is not none %}   
+  <br>
+  <p class="step-description bold">API Keys currently set for {{friendly_exchange_name}}:</p>
+    <ul>
+    {% for metadata in meta_data_to_return_to_user %}
+      <li class="api-key-list">{{ metadata }}</li>
+    {% endfor %}  
+    </ul>
+
+{% else %}
+  <br>
+     <p class="step-description medium">No API keys set for {{friendly_exchange_name}}</p>
+{% endif %}
+
+
+<br><br>
+<p class="faq-link-text green">See our <a class="faq-link medium" href="https://blog.cryptostacker.io/blog/how-to-set-api-keys">blog post</a> for information about API key security and best practices</p>
+<br><br>
+<p><a class="btn-action btn-delete" href="/set_api_keys/coinbase/delete/{{exchange_name}}">Delete {{friendly_exchange_name}} API key</a></p>
+</div>
+</main>
+
+{% endblock %}

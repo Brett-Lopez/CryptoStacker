@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <main>
+      <section class="section-hero section-hero-first-time">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h2 class="heading-primary">Scheduling</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-exchanges">
+        <div class="container grid grid--2-cols margin-bottom-md scheduler-box">
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/scheduling_page_set_api_key.png') }}"
+            class= "exchange-img" 
+            alt="Key and list light blue on dk blue bkg"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">Set API keys</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/set_api_keys" class="btn btn--full">Select</a>
+        </div>
+          </div>
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/scheduling_page_set_dca_schedule.png') }}"
+            class= "exchange-img" 
+            alt="Bag of money on calendar light blue on dk blue bkg"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">DCA schedules</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler" class="btn btn--full">Select</a>
+        </div>
+          </div>
+        </div>
+
+        <div class="container grid grid--2-cols margin-bottom-md scheduler-box">
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/scheduling_page_view_dca_schedule.png') }}"
+            class= "exchange-img" 
+            alt="Eye over clock light blue on dk blue bkg"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">View DCA logs</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/utilities/dca_logs" class="btn btn--full">Select</a>
+        </div>
+          </div>
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/scheduling_page_dca_calculator.png') }}"
+            class= "exchange-img" 
+            alt="Coin with dollar symbol over calculator light blue on dk blue bkg"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">DCA calculator</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/utilities/dca_calculator" class="btn btn--full">Select</a>
+        </div>
+          </div>
+        </div>
+
+    </section>
+
+  </main>
+
+
+
+
+{% endblock %}

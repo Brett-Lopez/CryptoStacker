@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary">Please provide some additional info</h2>
+        </div>
+      </div>
+    </section>
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+            <div class="container">
+
+<p class="subheading">All taxes are included in the price, please select your current US location for sales tax purposes.</p>
+<br>
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    {{ form.form_entered_us_state.label (class_="form-timezone") }}
+    <br>
+    {{form.form_entered_us_state (class="form-timezone form-spacing margin-bottom-sm")}}
+    <br>
+    {{ form.submit() }}
+</form>
+</div>
+</section>
+</section>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+User-Agent: *
+
+Allow: /
+Allow: /pricing
+Allow: /pricing-tier-2
+Allow: /pricing-tier-3
+
+Allow: https://blog.cryptostacker.io/
+Allow: https://blog.cryptostacker.io/blog
+Allow: https://blog.cryptostacker.io/blog/benefits-of-high-frequency-dollar-cost-averaging
+Allow: https://blog.cryptostacker.io/contact
+Allow: https://blog.cryptostacker.io/faq
+
+Disallow: /static
+Disallow: /brand_ambassador
+Disallow: /subscribe
+Disallow: /logged_out
+Disallow: /logged_out_verify_email
+Disallow: /logout
+Disallow: /legal
+Disallow: /legal/terms_of_service
+Disallow: /legal/privacy_policy
+Disallow: /legal/cookie_policy
+Disallow: /legal/return_policy
+
+Noindex: /static
+Noindex: /brand_ambassador
+Noindex: /subscribe
+Noindex: /logged_out
+Noindex: /logged_out_verify_email
+Noindex: /logout
+Noindex: /legal
+Noindex: /legal/terms_of_service
+Noindex: /legal/privacy_policy
+Noindex: /legal/cookie_policy
+Noindex: /legal/return_policy
+
+
+Sitemap: https://www.cryptostacker.io/sitemap.xml
+

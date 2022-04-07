@@ -1,0 +1,35 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+{% if message_to_user is not none %}
+<p>{{ message_to_user }}</p>
+
+{% else %}
+{% endif %}
+<br><br>
+
+<h3>{{digital_asset|upper}} dollar cost averaging schedule & exchange priorities for user ID: {{ user_id_input }}</h3>
+
+{% if list_of_schedule_info_to_display_to_user is not none %}   
+  <br>
+    <ul>
+    {% for schedule in list_of_schedule_info_to_display_to_user %}
+      <li>{{ schedule }}</li>
+    {% endfor %}  
+    </ul>
+  <br><br>
+  <a class="button" href="/dca_scheduler/set/{{digital_asset}}">Set a new {{digital_asset|upper}} DCA schedule</a><br><br>
+  <br><br>
+    <p><a class="button" href="/dca_scheduler/delete/{{digital_asset}}">Delete {{digital_asset|upper}} DCA schedule</a></p>
+
+{% else %}
+  <br><br>
+     <h2>No DCA schedule set for {{digital_asset|upper}}</h2>
+     <br>
+     <a class="button" href="/dca_scheduler/set/{{digital_asset}}">Set {{digital_asset|upper}} DCA schedule</a>
+     <br><br>
+{% endif %}
+
+
+{% endblock %}

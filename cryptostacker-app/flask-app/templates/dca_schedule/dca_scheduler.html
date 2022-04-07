@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+    <main>
+      <section class="section-hero section-hero-first-time">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h2 class="heading-primary">DCA Schedules</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dca-scheduler">
+        <div class="container grid grid--3-cols margin-bottom-md">
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/dca_schedule_btc_small.png') }}"
+            class= "exchange-img" 
+            alt="Bitcoins stacked in front of phone displaying a chart"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">Bitcoin</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler/set/btc" class="btn btn--shaded">Set schedule</a></div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler/view_delete/btc" class="btn btn--shaded">View schedule</a>
+            </div>
+        </div>
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/dca_schedule_eth_small.png') }}"
+            class= "exchange-img" 
+            alt="Ethereum coins stacked in front of phone displaying a chart"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">Ethereum</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler/set/eth" class="btn btn--shaded">Set schedule</a></div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler/view_delete/eth" class="btn btn--shaded">View schedule</a>
+        </div>
+        </div>
+          <div class="exchange">
+            <img 
+            src="{{ url_for('static', filename='img/dca_schedule_ltc_small.png') }}"
+            class= "exchange-img" 
+            alt="Litecoin coins stacked in front of phone displaying a chart"
+            />
+            <div class="scheduler-content">
+            <p class="scheduler-title">Litecoin</p>
+          </div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler/set/ltc" class="btn btn--shaded">Set schedule</a></div>
+          <div class="btn-scheduler">
+            <a href="/dca_scheduler/view_delete/ltc" class="btn btn--shaded">View schedule</a>
+        </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+
+
+
+{% endblock %}

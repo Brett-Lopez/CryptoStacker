@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <main>
+      <section class="section-hero section-hero-first-time">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h2 class="heading-primary heading-primary-first-time">Welcome! Please provide some additional info</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-first-time-form">
+        <section class="section-first-time">
+          <div class="container">
+            <p class="step-description">Setting your timezone is <span class="required">required</span> to ensure your DCA logs display the correct timezone.</p>
+            <p class="step-description">At this time our site only supports US residents.</p>
+            <form method="POST">
+              <div class="first-time-form">
+                {# This hidden_tag is a CSRF security feature. #}
+                {{ form.hidden_tag() }}
+                {{ form.form_entered_timezone.label(class_="form-timezone") }}
+                <br>
+                {{form.form_entered_timezone(class_="form-timezone form-spacing")}}
+                <br>
+                {{ form.form_entered_geo_location.label(class_="form-timezone") }}
+                <br>
+                {{form.form_entered_geo_location(class_="form-timezone form-spacing")}}
+                <br>
+                {{ form.form_entered_referral_code.label(class_="form-timezone") }}
+                <br>
+                {{form.form_entered_referral_code(class_="form-timezone form-spacing")}}
+                <br>
+                <div class="checkbox-box"><p class="form-timezone margin-right-sm">Do you agree to the <a class="terms-link medium" href="/legal/terms_of_service">terms of service</a>?</p> <label class="checkbox-container"><input class="form-timezone form-spacing" id="form_entered_terms_of_service_checkbox" name="form_entered_terms_of_service_checkbox" type="checkbox" value="y">
+                  <span class="checkmark"></span>
+                  </label>
+                </div>
+                <br>
+                <div class="checkbox-box"><p class="form-timezone margin-right-sm">Are you at least 18 years old?</p> <label class="checkbox-container"><input class="form-timezone form-spacing" id="form_entered_age_restriction_checkbox" name="form_entered_age_restriction_checkbox" type="checkbox" value="y">
+                  <span class="checkmark"></span>
+                  </label>
+                </div>
+                <br>
+                <p class="step-description-2">Enter a valid referral code to receive 10% off all purchases for 1 year</p>
+
+              </div>
+              {{ form.submit() }}
+
+            </form>
+            <br><br>
+
+            {% if message_to_return_to_user is not none %}   
+
+                <h1 class="step-description-2 step-description-2-color"> {{message_to_return_to_user}} </h1>
+
+            {% else %}
+            {% endif %}
+</div>
+
+    </main>
+
+
+
+{% endblock %}

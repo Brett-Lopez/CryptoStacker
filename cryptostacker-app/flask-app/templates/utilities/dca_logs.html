@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+  <section class="section-hero section-hero-first-time">
+    <div class="hero">
+      <div class="hero-text-box">
+        <h2 class="heading-primary">DCA log events</h2>
+      </div>
+    </div>
+  </section>
+  <section class="section-first-time-form">
+      <section class="section-first-time">
+          <div class="container">
+            <div style='overflow:auto'>
+              <div class="dca-log-form">
+                <form  class="margin-bottom-sm" method="POST">
+                    {# This hidden_tag is a CSRF security feature. #}
+                    {{ form.hidden_tag() }}
+
+                    {{ form.form_entered_number_of_log_events.label (class_="form-timezone ")}} {{form.form_entered_number_of_log_events (class_="form-timezone form-spacing margin-right-sm")}} 
+                    {{ form.form_entered_log_status_events.label (class_="form-timezone ")}} {{form.form_entered_log_status_events (class_="form-timezone form-spacing margin-right-sm")}}
+                    {{ form.form_entered_coin_type_events.label (class_="form-timezone ")}} {{form.form_entered_coin_type_events (class_="form-timezone form-spacing margin-right-sm")}}
+                    {{ form.form_entered_exchange_events.label (class_="form-timezone ")}} {{form.form_entered_exchange_events (class_="form-timezone form-spacing margin-right-sm")}}
+                    {{ form.submit() }}
+                </form>
+              </div>
+
+            {% if list_of_log_events is not none %}
+              <br>
+              <table class="table table-hover">
+                <thead>
+                <tr class="headers-table">
+                    <th scope="col">Date & Time</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Coin</th>
+                    <th scope="col">Fiat Amount</th>
+                    <th scope="col">Fiat Denomination</th>
+                    <th scope="col">Exchange</th>
+                    <th scope="col">Time interval</th>
+                    <th scope="col">High Availability Type</th>
+                    <th scope="col">Exchange Order ID</th>
+                    <th scope="col">Additional info</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in list_of_log_events %}
+                  <tr>
+                      <td>{{ row.datetime }}</td>
+                      <td>{{ row.status }}</td>
+                      <td>{{ row.coin }}</td>
+                      <td>{{ row.fiatamount }}</td>
+                      <td>{{ row.fiatdenomination }}</td>
+                      <td>{{ row.exchange }}</td>
+                      <td>{{ row.timeinterval }}</td>
+                      <td>{{ row.highavailabilitytype }}</td>
+                      <td>{{ row.exchangeorderid }}</td>
+                      <td>{{ row.additionalinfo }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              </div>
+            {% else %}
+            
+            {% if stage_indicator == "blank" %}
+            
+            {% else %}
+            
+            <div class="no-events">
+              <h2 class="heading-quaternary">No DCA events</h2>
+              <br>
+              <a class="btn btn--full" href="/dca_scheduler">Create a DCA schedule</a>
+              </div>
+
+            {% endif %}
+            {% endif %}
+      </div>
+    </section>
+  </section>
+</main>
+
+{% endblock %}

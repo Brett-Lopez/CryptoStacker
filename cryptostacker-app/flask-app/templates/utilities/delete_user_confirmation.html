@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary">Delete account</h2>
+        </div>
+      </div>
+    </section>
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+            <div class="container">
+                <div class="center">
+                    <h2 class="heading-tertiary">Are you sure you wish to delete the CryptoStacker account for {{ email_address }}?</h2>
+                    <p class="form-timezone bold">This will delete your account and all of your user data.</p>  
+                    <p class="form-timezone bold margin-bottom-sm underline">This process cannot be undone.</p>
+                </div>
+                <div class="two-btn-box">
+                    <a class="btn btn--red " href="/utilities/user_settings/delete_user">Yes I'm sure, delete my account and all data</a>
+                    <a class="btn btn--shaded" href="/utilities/user_settings">I changed my mind, go back.</a>
+                </div>
+
+             </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,15 @@
+flask
+flask_login
+oauthlib
+requests
+wtforms
+flask_wtf
+flask_session
+redis
+bleach
+boto3
+gunicorn
+pytz
+flask-talisman
+sendgrid
+#flask-seasurf

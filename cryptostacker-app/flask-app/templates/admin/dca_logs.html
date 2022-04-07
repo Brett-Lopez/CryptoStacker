@@ -1,0 +1,61 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h3>Admin: View DCA log events</h3>
+
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    {{ form.form_entered_user_id.label }} {{form.form_entered_user_id}}
+    <br>
+    {{ form.form_entered_number_of_log_events.label }} {{form.form_entered_number_of_log_events}} 
+    {{ form.form_entered_log_status_events.label }} {{form.form_entered_log_status_events}}
+    {{ form.form_entered_coin_type_events.label }} {{form.form_entered_coin_type_events}}
+    {{ form.form_entered_exchange_events.label }} {{form.form_entered_exchange_events}}
+    {{ form.submit() }}
+</form>
+
+{% if list_of_log_events is not none %}
+  <br>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Date & Time</th>
+        <th scope="col">Status</th>
+        <th scope="col">Coin</th>
+        <th scope="col">Fiat Amount</th>
+        <th scope="col">Fiat Denomination</th>
+        <th scope="col">Exchange</th>
+        <th scope="col">Time interval</th>
+        <th scope="col">High Availability Type</th>
+        <th scope="col">Exchange Order ID</th>
+        <th scope="col">Additional info</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in list_of_log_events %}
+      <tr>
+          <td>{{ row.datetime }}</td>
+          <td>{{ row.status }}</td>
+          <td>{{ row.coin }}</td>
+          <td>{{ row.fiatamount }}</td>
+          <td>{{ row.fiatdenomination }}</td>
+          <td>{{ row.exchange }}</td>
+          <td>{{ row.timeinterval }}</td>
+          <td>{{ row.highavailabilitytype }}</td>
+          <td>{{ row.exchangeorderid }}</td>
+          <td>{{ row.additionalinfo }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <br><br>
+     <h2>No DCA events</h2>
+     <br>
+     <a class="button" href="/dca_scheduler">Create a DCA schedule</a>
+     <br><br>
+{% endif %}
+
+{% endblock %}

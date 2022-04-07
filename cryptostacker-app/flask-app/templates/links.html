@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Welcome!</h1>
+<br>
+<p>You're logged in as: {{email}}</p>
+
+<a class="button" href="/set_api_keys">API Keys</a><br><br>
+<a class="button" href="/dca_scheduler">DCA Scheduler</a><br><br>
+<a class="button" href="/utilities/dca_calculator">DCA Calculator</a><br><br>
+<a class="button" href="/utilities/dca_logs">DCA logs</a><br><br>
+<a class="button" href="/utilities/user_settings">user settings (timezone, delete account)</a><br><br>
+<a class="button" href="/utilities/first_time_login_landing_page">first time login landing page</a><br><br>
+<a class="button" href="/subscribe/manage_subscription">Manage Subscription</a><br><br>
+<a class="button" href="/utilities/newsletter">newsletter</a><br><br>
+<a class="button" href="/blog">blog (FAQ, guides, documentation, etc)</a><br><br>
+<a class="button" href="/admin">Admin portal</a><br><br>
+<a class="button" href="/brand_ambassador">Brand Ambassador Portal</a><br><br>
+{% endblock %}

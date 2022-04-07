@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary">DCA Calculator</h2>
+        </div>
+      </div>
+    </section>
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+            <div class="container">
+                <form  method="POST">
+                    {# This hidden_tag is a CSRF security feature. #}
+                    {{ form.hidden_tag() }}
+
+                    {{ form.form_entered_periodic_buy_amount.label (class_="form-timezone")}}
+                    <br> 
+                    {{form.form_entered_periodic_buy_amount (class="form-timezone form-spacing")}}
+                    <br>
+                    {{ form.form_entered_number_of_days_per_purchase_period.label (class_="form-timezone")}} 
+                    <br>
+                    {{form.form_entered_number_of_days_per_purchase_period (class="form-timezone form-spacing")}}
+                    <br>
+                    {{ form.form_entered_amount_of_fiat_per_purchase_period.label (class_="form-timezone")}} 
+                    <br>
+                    {{form.form_entered_amount_of_fiat_per_purchase_period (class_="form-timezone form-spacing margin-bottom-sm")}}
+                    <br>
+                    {{ form.submit() }}
+                </form>
+                {% if message_to_user is not none %}
+                <p class="step-description green medium margin-top-sm">{{ message_to_user }}</p>
+                {% else %}
+                {% endif %}
+
+        </section>
+    </section>
+</main>
+
+
+{% endblock %}

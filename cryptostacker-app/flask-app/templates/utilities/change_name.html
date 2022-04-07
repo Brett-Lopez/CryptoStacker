@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary">Name change</h2>
+        </div>
+      </div>
+    </section>
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+            <div class="container">
+                <p class="form-timezone"><span class="medium">First name:</span> {{first_name}}</p>
+                <br>
+                <p class="form-timezone"><span class="medium">Last name:</span> {{last_name}}</p>
+
+                {% if federated_bool is none %}
+
+                <br>
+                <p class="heading-name-change">Change name:</p>
+                <form  method="POST">
+                    {# This hidden_tag is a CSRF security feature. #}
+                    {{ form.hidden_tag() }}
+                    {{ form.form_entered_first_name.label (class_="form-timezone ")}} 
+                    <br>
+                    {{form.form_entered_first_name (class_="form-timezone form-spacing")}}
+                    <br>
+                    {{ form.form_entered_last_name.label (class_="form-timezone")}} 
+                    <br>
+                    {{form.form_entered_last_name (class_="form-timezone form-spacing")}}
+                    <br>
+                    {{ form.submit() }}
+                </form>
+
+                {% else %}
+                <br>
+                <p class="form-timezone">Your first and last name are set by your identity provider, if you wish to change your name please do so using the identity provider you logged in with.</p>
+
+                {% endif %}
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

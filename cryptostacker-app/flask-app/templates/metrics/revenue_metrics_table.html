@@ -1,0 +1,67 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h3>Metrics: revenue metrics</h3>
+
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    <br>
+    {{ form.form_entered_number_of_rows.label }} {{form.form_entered_number_of_rows}} 
+    {{ form.submit() }}
+</form>
+
+{% if message_to_user is not none %}   
+
+<h1> {{message_to_user}} </h1>
+
+{% else %}
+{% endif %}
+
+{% if list_of_metrics is not none %}
+  <br>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Row ID</th>
+        <th scope="col">Epoch Time</th>
+        <th scope="col">Date</th>
+        <th scope="col">gross revenue past 24_hours</th>
+        <th scope="col">gross revenue past 7_days</th>
+        <th scope="col">gross revenue rolling_30_days</th>
+        <th scope="col">gross revenue previous_month</th>
+        <th scope="col">gross revenue month_to_date</th>
+        <th scope="col">gross revenue previous_quarter</th>
+        <th scope="col">gross revenue quarter_to_date</th>
+        <th scope="col">gross revenue previous_year</th>
+        <th scope="col">gross revenue year_to_date</th>
+        <th scope="col">gross revenue rolling_1_year</th>
+        <th scope="col">gross revenue all_time</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in list_of_metrics %}
+      <tr>
+          <td>{{ row.row_id }}</td>
+          <td>{{ row.epoch_time }}</td>
+          <td>{{ row.iso_date }}</td>
+          <td>{{ row.gross_revenue_past_24_hours }}</td>
+          <td>{{ row.gross_revenue_past_7_days }}</td>
+          <td>{{ row.gross_revenue_past_rolling_30_days }}</td>
+          <td>{{ row.gross_revenue_past_previous_month }}</td>
+          <td>{{ row.gross_revenue_past_month_to_date }}</td>
+          <td>{{ row.gross_revenue_past_previous_quarter }}</td>
+          <td>{{ row.gross_revenue_past_quarter_to_date }}</td>
+          <td>{{ row.gross_revenue_past_previous_year }}</td>
+          <td>{{ row.gross_revenue_past_year_to_date }}</td>
+          <td>{{ row.gross_revenue_past_rolling_1_year }}</td>
+          <td>{{ row.gross_revenue_past_all_time }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+{% endif %}
+
+{% endblock %}

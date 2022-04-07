@@ -1,0 +1,23 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+
+<h2>Check Brand Ambassador referral code</h2>
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+
+    {{ form.form_entered_referral_code.label }} {{form.form_entered_referral_code}}
+    <br>
+    {{ form.submit() }}
+</form>
+{% if message_to_user is not none %}
+<p>{{ message_to_user }}</p>
+
+{% else %}
+{% endif %}
+<br><br>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary heading-primary-first-time">Welcome Brand Ambassador {{ email_address }}</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+          <div class="container ambassador-info">
+                <h3 class="heading-ambassador">Your referral code revenue metrics & related information:</h3>
+
+                <p class="form-timezone line-height-md"><span class="medium">Your referral code:</span><span class="grey"> {{ referral_code }}</span></p>
+                <p class="form-timezone line-height-md"><span class="medium">Your revenue share percentage:</span><span class="grey"> {{ revenue_share_percentage }}%</span></p>
+
+                <p class="form-timezone line-height-md"><span class="medium">Total users using your referral code:</span><span class="grey"> {{ total_users_with_referral_code }}</span></p>
+                <p class="form-timezone line-height-md"><span class="medium">Total <span class="italic">paying</span> users using your referral code:</span><span class="grey"> {{ unique_paying_users }}</span></p>
+
+                <p class="form-timezone line-height-md"><span class="medium">Total revenue your users have generated (first 12 months of spend per user):</span><span class="grey"> ${{ gross_revenue_generated }}</span></p>
+                <p class="form-timezone line-height-md"><span class="medium">Last quarter revenue your users generated:</span><span class="grey"> ${{ gross_revenue_previous_quarter }}</span></p>
+                <p class="form-timezone line-height-md"><span class="medium">Current quarter revenue your users generated:</span><span class="grey"> ${{ gross_revenue_current_quarter }}</span></p>
+
+                <p class="form-timezone line-height-md"><span class="medium">Your total revenue share from your users (first 12 months of spend per user):</span><span class="grey"> ${{ gross_revenue_brand_ambassador_share }}</span></p>
+                <p class="form-timezone line-height-md"><span class="medium">Last quarter amount of <span class="italic">your</span> revenue share:</span><span class="grey"> ${{ gross_revenue_previous_quarter_ambassador_share }}</span></p>
+                <p class="form-timezone line-height-md"><span class="medium">Your current revenue share:</span><span class="grey"> ${{ gross_revenue_quarter_to_date_ambassador_share }}</span></p>
+
+                <p class="form-timezone line-height-md margin-bottom-sm"><span class="medium">paydate information (placeholder)</span></p>
+                
+                <p class="step-description-2 medium">You will receive a revenue share on each user's spending for their first 12 months on the CryptoStacker platform.</p>
+
+                <p class="step-description-2">If you have any questions please contact brandambassadorsupport@cryptostacker.io </p>
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

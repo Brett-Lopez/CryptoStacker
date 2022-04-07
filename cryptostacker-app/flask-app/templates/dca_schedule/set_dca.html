@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary">Set DCA schedule</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+          <div class="container">
+            {% if message_to_return_to_user is not none %}   
+          <h2 class="api-set-alert api-set-alert-success" role="alert">{{message_to_return_to_user}}</h2>
+      {% else %}
+      {% endif %}
+
+<h3 class="step-description-green bold">Set {{digital_asset|upper}} dollar cost averaging schedule:</h3>
+
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+
+    {{ form.form_entered_dollar_amount.label (class_="form-timezone")}} 
+    {{form.form_entered_dollar_amount (class_="form-timezone form-spacing margin-right-sm")}} 
+    {{ form.form_entered_time_interval.label (class_="form-timezone")}} {{form.form_entered_time_interval (class_="form-timezone form-spacing")}} 
+    {{ form.form_entered_time_denomination.label (class_="form-timezone")}} {{form.form_entered_time_denomination (class_="form-timezone form-spacing")}}
+    <br>
+    {{ form.form_entered_high_availability_type.label (class_="form-timezone")}} 
+    <br>
+    {{form.form_entered_high_availability_type (class_="form-timezone form-spacing")}}
+    <br>
+    {{ form.form_entered_fiat_denomination.label (class_="form-timezone")}} 
+    <br>
+    {{form.form_entered_fiat_denomination (class_="form-timezone form-spacing")}}
+    <br>
+    <h3 class="step-description-green bold">Set your exchange priority:</h3>
+    {{form.form_entered_exchange_priority_1 (class_="form-timezone form-spacing")}}
+    <br>
+    {{form.form_entered_exchange_priority_2 (class_="form-timezone form-spacing")}}
+    <br>
+    {{form.form_entered_exchange_priority_3 (class_="form-timezone form-spacing")}}
+    <br>
+    {{form.form_entered_exchange_priority_4 (class_="form-timezone form-spacing")}}
+    <br>
+    {{form.form_entered_exchange_priority_5 (class_="form-timezone form-spacing")}}
+    <br>
+    {{form.form_entered_exchange_priority_6 (class_="form-timezone form-spacing")}}
+    <br>
+    {{ form.submit() }}
+</form>
+<br><br>
+<p class="faq-link-text green">Questions? See our <a class="faq-link medium" href="https://blog.cryptostacker.io/blog/how-to-create-a-dca-schedule">blog post</a> for help with setting your DCA schedule</p>
+<br><br>
+<p><a class="btn btn--shaded" href="/dca_scheduler/view_delete/{{digital_asset}}">View {{digital_asset|upper}} DCA schedule</a></p>
+<br><br>
+<p><a class="btn btn--shaded" href="/dca_scheduler/delete/{{digital_asset}}">Delete {{digital_asset|upper}} DCA schedule</a></p>
+<br><br>
+
+</main>
+{% endblock %}

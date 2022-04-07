@@ -1,0 +1,45 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h3>Admin: debug api keys</h3>
+
+<form  method="POST">
+  {# This hidden_tag is a CSRF security feature. #}
+  {{ form.hidden_tag() }}
+
+  {{ form.form_entered_user_id.label }} {{form.form_entered_user_id}}
+  <br>
+  {{ form.submit() }}
+</form>
+
+{% if metadata_results_per_exchange is not none %}
+  <br>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">coinbase_pro</th>
+        <th scope="col">bittrex</th>
+        <th scope="col">kraken</th>
+        <th scope="col">binance_us</th>
+        <th scope="col">gemini</th>
+        <th scope="col">ftx_us</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>{{ metadata_results_per_exchange.coinbase_pro }}</td>
+          <td>{{ metadata_results_per_exchange.bittrex }}</td>
+          <td>{{ metadata_results_per_exchange.kraken }}</td>
+          <td>{{ metadata_results_per_exchange.binance_us }}</td>
+          <td>{{ metadata_results_per_exchange.gemini }}</td>
+          <td>{{ metadata_results_per_exchange.ftx_us }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% else %}
+  <br><br>
+     <h2>Please enter user id </h2>
+{% endif %}
+
+{% endblock %}

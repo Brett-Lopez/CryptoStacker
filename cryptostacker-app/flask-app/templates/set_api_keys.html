@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+  <section class="section-hero section-hero-first-time">
+    <div class="hero">
+      <div class="hero-text-box">
+        <h2 class="heading-primary heading-primary-first-time">Set {{friendly_exchange_name}} API key</h2>
+      </div>
+    </div>
+  </section>
+
+
+
+      <section class="section-exchanges">
+          <div class="container center-text">
+            <span class="subheading">Dollar Cost Averaging</span>
+            <h2 class="heading-secondary">Choose from 6 exchanges</h2>
+          </div>
+          <div class="container grid grid--3-cols margin-bottom-md">
+            <div class="exchange">
+                <img 
+                src="{{ url_for('static', filename='img/landing_page_coinbase_small.png') }}"
+                class= "exchange-img" 
+                alt="Coinbase Pro exchange logo white on mid blue background"
+                />
+                <div class="scheduler-content">
+                <p class="scheduler-title">Coinbase Pro</p>
+              </div>
+              <div class="btn-scheduler">
+                <a href="/set_api_keys/coinbase/coinbase_pro" class="btn btn--full">Set API Keys</a>
+            </div>
+              </div>
+              <div class="exchange">
+                <img 
+                src="{{ url_for('static', filename='img/landing_page_kraken_small.png') }}"
+                class= "exchange-img" 
+                alt="Kraken exchange logo white on purple background"
+                />
+                <div class="scheduler-content">
+                <p class="scheduler-title">Kraken</p>
+              </div>
+              <div class="btn-scheduler">
+                <a href="/set_api_keys/standard/kraken" class="btn btn--full">Set API Keys</a>
+            </div>
+              </div>
+              <div class="exchange">
+                <img 
+                src="{{ url_for('static', filename='img/landing_page_binance_small.png') }}"
+                class= "exchange-img" 
+                alt="Binance logo yellow on blue background"
+                />
+                <div class="scheduler-content">
+                <p class="scheduler-title">Binance US</p>
+              </div>
+              <div class="btn-scheduler">
+                <a href="/set_api_keys/standard/binance_us" class="btn btn--full">Set API Keys</a>
+            </div>
+              </div>
+          </div>
+          <div class="container grid grid--3-cols margin-bottom-md">
+            <div class="exchange">
+                <img 
+                src="{{ url_for('static', filename='img/landing_page_ftx_small.png') }}"
+                class= "exchange-img" 
+                alt="FTX logo light blue on dark blue world map"
+                />
+                <div class="scheduler-content">
+                <p class="scheduler-title">FTX US</p>
+              </div>
+              <div class="btn-scheduler">
+                <a href="/set_api_keys/standard/ftx_us" class="btn btn--full">Set API Keys</a>
+            </div>
+              </div>
+              <div class="exchange">
+                <img 
+                src="{{ url_for('static', filename='img/landing_page_gemini_small.png') }}"
+                class= "exchange-img" 
+                alt="Gemini exchange logo light blue"
+                />
+                <div class="scheduler-content">
+                <p class="scheduler-title">Gemini</p>
+              </div>
+              <div class="btn-scheduler">
+                <a href="/set_api_keys/standard/gemini" class="btn btn--full">Set API Keys</a>
+            </div>
+              </div>
+              <div class="exchange">
+                <img 
+                src="{{ url_for('static', filename='img/landing_page_bittrex_small.png') }}"
+                class= "exchange-img" 
+                alt="Bittrex exchange logo on grey world map"
+                />
+                <div class="scheduler-content">
+                <p class="scheduler-title">Bittrex</p>
+              </div>
+              <div class="btn-scheduler">
+                <a href="/set_api_keys/standard/bittrex" class="btn btn--full">Set API Keys</a>
+            </div>
+              </div>
+          </div>
+      </section>
+{% endblock %}

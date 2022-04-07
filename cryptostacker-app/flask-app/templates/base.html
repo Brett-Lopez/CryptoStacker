@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <!-- termly.io - cookies banner -->
+    <script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="on" data-website-uuid="5e871e9c-9208-4191-b368-d3f459ad3036" ></script>
+
+    <!-- osano.com - cookies banner -->
+    <script src="https://cmp.osano.com/169sv6SyfhmqcEDG/354d8a9f-efde-46fb-90e0-c330de4d5c72/osano.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y19KYMPHTV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y19KYMPHTV');
+    </script>
+    <!-- End Global site tag (gtag.js) - Google Analytics -->
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <!--Always include this line of code!!-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CryptoStacker allows users to automate dollar cost averaging of cryptocurrencies with high frequency and high-availability"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/queries.css') }}">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>  
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>  
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/CryptoStacker_Icon-Green_favicon.png') }}">
+    
+    <title>CryptoStacker - DCA on your schedule</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/"><img class="logo" alt="CryptoStacker logo" src="{{ url_for('static', filename='img/CryptoStacker_Beta-Logo-Color-Dark.png') }}"/></a>
+      
+      
+      <!--<h1 class="header-name">CryptoStacker</h1>-->
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          
+          {% if current_user.is_authenticated %}
+          <li class=""><a class="main-nav-link" href="/scheduler">Scheduler</a></li>
+          <li class=""><a class="main-nav-link" href="/pricing">Pricing</a></li>
+          <li class=""><a class="main-nav-link" href="/utilities/user_settings">Settings</a></li>
+          <li class=""><a class="main-nav-link" href="https://blog.cryptostacker.io/blog/benefits-of-high-frequency-dollar-cost-averaging">Blog</a></li>
+          <li class=""><a class="main-nav-link nav-cta" href="{{ url_for('logout') }}">Logout</a></li>
+          {% else %}
+          <li class=""><a class="main-nav-link" href="https://blog.cryptostacker.io/blog/benefits-of-high-frequency-dollar-cost-averaging">Blog</a></li>
+          <li class=""><a class="main-nav-link" href="/pricing">Pricing</a></li>
+          <li class=""><a class="main-nav-link nav-cta" href="/login">Login</a></li>
+          {% endif %}
+          
+        </ul>
+      </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+
+
+    <!-- BLOCK CONTENT -->
+    {% block content %}
+
+    {% endblock %}
+  
+
+    <!-- FOOTER -->
+   
+
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="/" class="footer-logo">
+            <img class="logo" alt="CryptoStacker logo" src="{{ url_for('static', filename='img/CryptoStacker_Beta-Logo-Color-Dark.png') }}"/>
+          </a>
+          <!--<ul class="social-links">
+            <li><a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-twitter"></ion-icon></a></li>
+            <li><a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-reddit"></ion-icon></a></li>
+            <li><a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-instagram"></ion-icon></a></li>
+            <li><a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-facebook"></ion-icon></a></li>
+          </ul>-->
+          <p class="copyright">Copyright &copy; <span class="year">2022</span> by CryptoStacker, Inc. All rights reserved.</p>
+        </div>
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="/login">Create Account</a></li>
+            <li><a class="footer-link" href="/login">Sign in</a></li>
+            <li><a class="footer-link" href="/brand_ambassador">Ambassador Portal</a></li>
+          </ul>
+        </nav>
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="/about_us">Who we are</a></li>
+            <li><a class="footer-link" href="https://blog.cryptostacker.io/blog">Blog</a></li>
+            <li><a class="footer-link" href="https://www.twitter.com/cryptostackerio">Visit us on Twitter</a></li>
+          </ul>
+        </nav>
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="https://blog.cryptostacker.io/contact">Support</a></li>
+            <li><a class="footer-link" href="https://blog.cryptostacker.io/faq">FAQ</a></li>
+            <li><a class="footer-link" href="/legal">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+
+      </div>
+      <div class="footer-disclaimer">CryptoStacker does not provide any professional advice such as financial, legal, tax, investment, etc. Please contact a qualified financial advisor to educate yourself on the risks of purchasing cryptocurrency.</div>
+    </footer>
+  </body>
+</html>

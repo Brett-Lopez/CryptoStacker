@@ -1,0 +1,93 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h3>Metrics: user metrics</h3>
+
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    <br>
+    {{ form.form_entered_number_of_rows.label }} {{form.form_entered_number_of_rows}} 
+    {{ form.submit() }}
+</form>
+
+{% if message_to_user is not none %}   
+
+<h1> {{message_to_user}} </h1>
+
+{% else %}
+{% endif %}
+
+{% if list_of_metrics is not none %}
+  <br>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Row ID</th>
+        <th scope="col">Epoch Time</th>
+        <th scope="col">Date</th>
+        <th scope="col">Total Users</th>
+        <th scope="col">Users who made past first time login landing page</th>
+        <th scope="col">Verified Users</th>
+        <th scope="col">Paying Users</th>
+        <th scope="col">1 Month payments</th>
+        <th scope="col">3 Month payments</th>
+        <th scope="col">6 Month payments</th>
+        <th scope="col">12 Month payments</th>
+        <th scope="col">1200 Month payments</th>
+        <th scope="col">Tier 2 payments</th>
+        <th scope="col">Tier 3 payments</th>
+        <th scope="col">Users logged in the past 1 days</th>
+        <th scope="col">Users logged in the past 2 days</th>
+        <th scope="col">Users logged in the past 7 days</th>
+        <th scope="col">Users logged in the past 14 days</th>
+        <th scope="col">Users logged in the past 30 days</th>
+        <th scope="col">active schedules btc</th>
+        <th scope="col">active schedules eth</th>
+        <th scope="col">active schedules ltc</th>
+        <th scope="col">active schedules ha type failover</th>
+        <th scope="col">active schedules ha type round_robin</th>
+        <th scope="col">active schedules ha type simultaneous</th>
+        <th scope="col">active schedules ha type single_exchange</th>
+        <th scope="col">active schedules dca logs past 30_days</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in list_of_metrics %}
+      <tr>
+          <td>{{ row.row_id }}</td>
+          <td>{{ row.epoch_time }}</td>
+          <td>{{ row.iso_date }}</td>
+          <td>{{ row.total_users }}</td>
+          <td>{{ row.user_subscription_status_users }}</td>
+          <td>{{ row.verified_users }}</td>
+          <td>{{ row.paying_users }}</td>
+          <td>{{ row.payments_1_month }}</td>
+          <td>{{ row.payments_3_month }}</td>
+          <td>{{ row.payments_6_month }}</td>
+          <td>{{ row.payments_12_month }}</td>
+          <td>{{ row.payments_1200_month }}</td>
+          <td>{{ row.payments_tier_2 }}</td>
+          <td>{{ row.payments_tier_3 }}</td>
+          <td>{{ row.users_logged_in_past_24_hours }}</td>
+          <td>{{ row.users_logged_in_past_48_hours }}</td>
+          <td>{{ row.users_logged_in_past_168_hours }}</td>
+          <td>{{ row.users_logged_in_past_336_hours }}</td>
+          <td>{{ row.users_logged_in_past_720_hours }}</td>
+          <td>{{ row.active_schedules_btc }}</td>
+          <td>{{ row.active_schedules_eth }}</td>
+          <td>{{ row.active_schedules_ltc }}</td>
+          <td>{{ row.active_schedules_ha_type_failover }}</td>
+          <td>{{ row.active_schedules_ha_type_round_robin }}</td>
+          <td>{{ row.active_schedules_ha_type_simultaneous }}</td>
+          <td>{{ row.active_schedules_ha_type_single_exchange }}</td>
+          <td>{{ row.active_schedules_dca_logs_past_30_days }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h3>Admin: View user_subscription_status row</h3>
+
+{% if list_of_rows is not none %}
+  <br>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">user_id</th>
+        <th scope="col">referral_code</th>
+        <th scope="col">subscription_tier</th>
+        <th scope="col">tier_locked_by_admin</th>
+        <th scope="col">number_of_transactions_this_month</th>
+        <th scope="col">dollar_amount_of_transactions_this_month</th>
+        <th scope="col">total_number_of_transactions</th>
+        <th scope="col">total_dollar_amount_of_transactions</th>
+        <th scope="col">fiat_payment_gateway_customer_id</th>
+        <th scope="col">fiat_payment_provider</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in list_of_rows %}
+      <tr>
+          <td>{{ row.user_id }}</td>
+          <td>{{ row.referral_code }}</td>
+          <td>{{ row.subscription_tier }}</td>
+          <td>{{ row.tier_locked_by_admin }}</td>
+          <td>{{ row.number_of_transactions_this_month }}</td>
+          <td>{{ row.dollar_amount_of_transactions_this_month }}</td>
+          <td>{{ row.total_number_of_transactions }}</td>
+          <td>{{ row.total_dollar_amount_of_transactions }}</td>
+          <td>{{ row.fiat_payment_gateway_customer_id }}</td>
+          <td>{{ row.fiat_payment_provider }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <br><br>
+     <h2>No user_subscription_status rows </h2>
+{% endif %}
+
+{% endblock %}

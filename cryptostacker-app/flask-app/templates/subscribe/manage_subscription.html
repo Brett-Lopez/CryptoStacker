@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <section class="section-hero section-hero-first-time">
+    <div class="hero">
+      <div class="hero-text-box">
+        <h2 class="heading-primary">Manage subscription</h2>
+      </div>
+    </div>
+  </section>
+  <section class="section-first-time-form">
+      <section class="section-first-time">
+          <div class="container">
+
+            <div style='overflow:auto'>
+              <p class="heading-quaternary">Subscription stats:</p>
+              {% if subscription_tier_data_list_of_dictionaries is not none %}   
+                <table class="table table-hover margin-bottom-sm">
+                  <thead>
+                  <tr class="headers-table">
+                      <th scope="col">Active subscription tier</th>
+                      <th scope="col">Subscription tier exceeded?</th>
+                      <th scope="col">Transactions (Month)</th>
+                      <th scope="col">Dollar amount of transactions (Month)</th>
+                      <th scope="col">Total transactions (Lifetime)</th>
+                      <th scope="col">Total dollar amount of transactions (Lifetime)</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for row in subscription_tier_data_list_of_dictionaries %}
+                    <tr>
+                        <td>{{ row.active_tier }}</td>
+                        <td>{{ row.exceeded_tier_limit }}</td>
+                        <td>{{ row.number_of_transactions_this_month }}</td>
+                        <td>{{ row.dollar_amount_of_transactions_this_month }}</td>
+                        <td>{{ row.total_number_of_transactions }}</td>
+                        <td>{{ row.total_dollar_amount_of_transactions }}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              {% else %}
+              {% endif %}
+
+
+              <br>
+              <p class="heading-quaternary">Payment history:</p>
+              {% if payment_history_data_list_of_dictionaries is not none %}   
+                <table class="table table-hover">
+                  <thead>
+                  <tr class="headers-table">
+                      <th scope="col">Status</th>
+                      <th scope="col">Payment date</th>
+                      <th scope="col">Order ID</th>
+                      <th scope="col">Fiat Payment Amount</th>
+                      <th scope="col">Months Purchased</th>
+                      <th scope="col">Tier Purchased</th>
+                      <th scope="col">Subscription expiration date</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for row in payment_history_data_list_of_dictionaries %}
+                    <tr>
+                        <td>{{ row.status }}</td>  
+                        <td>{{ row.datetime_of_payment }}</td>
+                        <td>{{ row.order_id }}</td>
+                        <td>{{ row.payment_amount_in_usd }}</td>
+                        <td>{{ row.number_of_months_paid_for }}</td>
+                        <td>{{ row.tier_paid_for }}</td>
+                        <td>{{ row.datetime_of_expiration }}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              {% else %}
+                  <h2 class="step-description bold italic margin-bottom-sm">No payments made in the last 12 months</h2>
+                  <a class="btn btn--shaded" href="/pricing">Purchase subscription</a>
+                  <br>
+              {% endif %}
+            </div>
+      </div>
+    </section>
+  </section>
+</main>
+{% endblock %}

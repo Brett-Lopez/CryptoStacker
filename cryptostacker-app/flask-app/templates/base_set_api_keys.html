@@ -1,0 +1,24 @@
+
+    {% block content %}
+
+    {% endblock %}
+
+<form  method="POST">
+  {# This hidden_tag is a CSRF security feature. #}
+  {{ form.hidden_tag() }}
+
+  {{ form.form_entered_api_key_plaintext.label }} {{form.form_entered_api_key_plaintext}}
+  <br>
+  {{ form.form_entered_api_key_expires_boolean.label}} {{form.form_entered_api_key_expires_boolean}}
+  <br>
+  {{form.form_entered_api_key_expires_length.label}}{{form.form_entered_api_key_expires_length}}
+  <br>
+  {{ form.submit() }}
+</form>
+<br><br>
+<a class="button" href="/set_api_keys/coinbase/coinbase">Set Coinbase API key</a><br><br>
+<a class="button" href="/set_api_keys/coinbase/coinbase_pro">Set Coinbase PRO API key</a><br><br>
+<a class="button" href="/set_api_keys/bittrex">Set Bittrex API key</a><br><br>
+<a class="button" href="/set_api_keys/kraken">Set Kraken API key</a><br><br>
+<a class="button" href="/set_api_keys/binance_us">Set Binance US API key</a><br><br>
+<a class="button" href="/set_api_keys/gemini">Set Gemini API key</a>

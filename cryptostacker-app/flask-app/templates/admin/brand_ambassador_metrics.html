@@ -1,0 +1,44 @@
+{% extends "base3.html" %}
+{% block content %}
+
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+
+    {{ form.form_entered_user_id.label }} {{form.form_entered_user_id}}
+    <br>
+    {{ form.submit() }}
+</form>
+{% if message_to_user is not none %}
+<p>{{ message_to_user }}</p>
+
+{% else %}
+{% endif %}
+<br>
+
+<h2>Welcome Brand Ambassador {{ email_address }}</h2>
+
+<p>Here you'll find your referral code revenue metrics and related information.</p>
+
+<p>Your referral code: {{ referral_code }}</p>
+<p>Your revenue share percentage: {{ revenue_share_percentage }}%</p>
+<br>
+<p>Total number of users using your referral code: {{ total_users_with_referral_code }}</p>
+<p>Total number of <b>paying</b> users using your referral code: {{ unique_paying_users }}</p>
+<br>
+<p>Total dollar amount of revenue your users have generated (first 12 months of spend per user): ${{ gross_revenue_generated }}</p>
+<p>Last quarter dollar amount of revenue your users generated: ${{ gross_revenue_previous_quarter }}</p>
+<p>Current quarter dollar amount of revenue your users generated: ${{ gross_revenue_current_quarter }}</p>
+<br>
+<p>Total dollar amount of <b>your revenue share</b> your users have generated (first 12 months of spend per user): ${{ gross_revenue_brand_ambassador_share }}</p>
+<p>Last quarter dollar amount of <b>your revenue share</b>: ${{ gross_revenue_previous_quarter_ambassador_share }}</p>
+<p>Current quarter dollar amount of <b>your revenue share</b>: ${{ gross_revenue_quarter_to_date_ambassador_share }}</p>
+<br>
+<p>paydate information (placeholder)</p>
+
+<br>
+<p>You will receive a revenue share on each user's spending for their first 12 months on the CryptoStacker platform.</p>
+
+<p>If you have any questions please contact brandambassadorsupport@cryptostacker.io </p>
+
+{% endblock %}

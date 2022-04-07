@@ -1,0 +1,29 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+
+<h2>Set brand_ambassador & site_metrics_viewer & email_verified</h2>
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    <br>
+    {{ form.form_entered_user_id.label }} {{form.form_entered_user_id}}
+    <br>
+    {{ form.form_entered_brand_ambassador_bool.label }} {{form.form_entered_brand_ambassador_bool}}
+    <br>
+    {{ form.form_entered_site_metrics_viewer_bool.label }} {{form.form_entered_site_metrics_viewer_bool}}
+    <br>
+    {{ form.form_entered_email_verified_bool.label }} {{form.form_entered_email_verified_bool}}
+    <br>
+    {{ form.submit() }}
+</form>
+{% if message_to_user is not none %}
+<p>{{ message_to_user }}</p>
+
+{% else %}
+{% endif %}
+<br><br>
+
+
+{% endblock %}

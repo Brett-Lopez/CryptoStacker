@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <main>
+      <section class="section-hero section-hero-pricing">
+        <div class="hero">
+          <div class="hero-text-box">
+            <span class="subheading">Tier 3</span>
+            <h2 class="heading-primary">Choose subscription</h2>
+          </div>
+        </div>
+      </section>
+      <section class="section-pricing">
+        <div class="container">
+
+        </div>
+
+
+        <!--tier 3 starts-->
+
+        <div class="tiers section-pricing-tier">
+            <div class="container grid grid--4-cols-pricing margin-bottom-md grid-gap-sm">
+                <div class="pricing-plan-selection pricing-plan-selection--starter">
+                <header class="plan-header">
+                    <p class="plan-name">1 Month</p>
+                    <p class="plan-price"><span>$</span>{{csr_price_and_per_month_map_dict["tier3"]["1months"]["total_price"]}}</p>
+                    <p class="plan-text">due at checkout</p>
+                </header>
+                <ul class="list">
+                    <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>${{csr_price_and_per_month_map_dict["tier3"]["1months"]["price_per_month"]}} per month</span></li>
+                    <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>unlimited transactions</span></li>
+                </ul>
+                <div class="plan-sign-up">
+                    <a href="/subscribe/3/1" class="btn btn--full">Select</a>
+                </div>
+                </div>
+                <div class="pricing-plan-selection pricing-plan-selection--starter">
+                <header class="plan-header">
+                    <p class="plan-name">3 Months</p>
+                    <p class="plan-price"><span>$</span>{{csr_price_and_per_month_map_dict["tier3"]["3months"]["total_price"]}}</p>
+                    <p class="plan-text">due at checkout</p>
+                </header>
+                <ul class="list">
+                    <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>${{csr_price_and_per_month_map_dict["tier3"]["3months"]["price_per_month"]}} per month</span></li>
+                    <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>unlimited transactions</span></li>
+
+                </ul>
+                <div class="plan-sign-up">
+                    <a href="/subscribe/3/3" class="btn btn--full">Select</a>
+                </div>
+                </div>
+                <div class="pricing-plan-selection pricing-plan-selection--starter">
+                <header class="plan-header">
+                    <p class="plan-name">6 months</p>
+                    <p class="plan-price"><span>$</span>{{csr_price_and_per_month_map_dict["tier3"]["6months"]["total_price"]}}</p>
+                    <p class="plan-text">due at checkout</p>
+                </header>
+                <ul class="list">
+                    <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>${{csr_price_and_per_month_map_dict["tier3"]["6months"]["price_per_month"]}} per month</span></li>
+                    <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>unlimited transactions</span></li>
+                </ul>
+                <div class="plan-sign-up">
+                    <a href="/subscribe/3/6" class="btn btn--full">Select</a>
+                </div>
+                </div>
+                <div class="pricing-plan-selection pricing-plan-selection--starter">
+                    <header class="plan-header">
+                    <p class="plan-name">12 months</p>
+                        <p class="plan-price"><span>$</span>{{csr_price_and_per_month_map_dict["tier3"]["12months"]["total_price"]}}</p>
+                        <p class="plan-text">due at checkout</p>
+                    </header>
+                    <ul class="list">
+                        <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>${{csr_price_and_per_month_map_dict["tier3"]["12months"]["price_per_month"]}} per month</span></li>
+                        <li class="list-item"><ion-icon class="list-icon" name="rocket-sharp"></ion-icon><span>unlimited transactions</span></li>
+                    </ul>
+                    <div class="plan-sign-up">
+                        <a href="/subscribe/3/12" class="btn btn--full">Select</a>
+                    </div>
+                    </div>           
+            </div>
+        </div>
+
+      <div class="container grid">
+        <aside class="plan-details">
+          Prices include all applicable taxes. You can cancel at any time. 
+          All plans include the following:
+        </aside>
+      </div>
+
+      <div class="container grid grid--4-cols">
+        <div class="feature">
+          <ion-icon class="feature-icon md hydrated" name="time-outline" role="img" aria-label="time outline"></ion-icon>
+          <p class="feature-title">High frequency DCA schedules</p>
+          <p class="feature-text">With a high frequency DCA strategy you'll be
+            taking advantage of market volatility.  <a href="https://blog.cryptostacker.io/blog/benefits-of-high-frequency-dollar-cost-averaging">Read more</a>
+            </p>
+        </div>
+        <div class="feature">
+          <ion-icon class="feature-icon md hydrated" name="globe-outline" role="img" aria-label="globe outline"></ion-icon>
+          <p class="feature-title">High availability DCA schedules</p>
+          <p class="feature-text">Never again worry about your favorite exchange being down during a dip.
+            Even when your favorite exchange is down CryptoStacker can automatically switch to your next favorite exchange.
+            <a href="https://blog.cryptostacker.io/blog/the-benefits-of-high-availability-dollar-cost-averaging">Read more</a>
+          </p>
+        </div>
+        <div class="feature">
+          <ion-icon class="feature-icon md hydrated" name="cash-outline" role="img" aria-label="cash outline"></ion-icon>
+          <p class="feature-title">Get started for free</p>
+          <p class="feature-text">Everyone is in the free tier by default which means you'll receive $300/month in free DCA transactions
+            on all of our supported exchanges.  No obligation to upgrade to the paid tier.
+            </p>
+        </div>
+        <div class="feature">
+          <ion-icon class="feature-icon md hydrated" name="finger-print-outline" role="img" aria-label="finger print outline"></ion-icon>
+          <p class="feature-title">Security is our priority</p>
+          <p class="feature-text">Security is the number one priority at CryptoStacker.  CryptoStacker was founded by experienced CyberSecurity engineers who are equally passionate about CryptoCurrency and CyberSecurity.
+            </p>
+          </div>
+      </div>
+      </section>
+    </main>
+
+    {% endblock %}

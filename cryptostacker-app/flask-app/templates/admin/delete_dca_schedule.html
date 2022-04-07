@@ -1,0 +1,25 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+
+<h2>Delete DCA schedule</h2>
+<form  method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    
+    {{ form.form_entered_user_id.label }} {{form.form_entered_user_id}}
+    <br>
+    {{ form.form_entered_coin_schedule.label }} {{form.form_entered_coin_schedule}}
+    <br>
+    {{ form.submit() }}
+</form>
+{% if message_to_user is not none %}
+<p>{{ message_to_user }}</p>
+
+{% else %}
+{% endif %}
+<br><br>
+
+
+{% endblock %}

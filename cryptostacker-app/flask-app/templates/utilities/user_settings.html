@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<main>
+    <section class="section-hero section-hero-first-time">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h2 class="heading-primary">User settings</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-first-time-form">
+        <section class="section-first-time">
+            <div class="container hero">
+              <div class="hero-text-box">
+                <p class="form-timezone"><span class="bold">Current timezone:</span> {{usertimezone}} </p>
+                <br>
+                <p class="form-timezone medium">Change timezone:</p>
+                <form  method="POST">
+                      {# This hidden_tag is a CSRF security feature. #}
+                      {{ form.hidden_tag() }}
+                      <br>
+                      {{form.form_entered_timezone (class="form-timezone form-spacing")}}
+                      <br>
+                      {{ form.submit() }}
+                </form>
+                <p class="step-description-3 medium green">Need support?  First check out our FAQ page.  
+                <p class="step-description-3 medium green">Still need help?  Send an email to support@cryptostacker.io</p>
+              </div>
+              <div class="hero-btn-box">
+
+                {% if current_user.site_admin_full == "True" %}
+                <a class="btn btn--shaded btn--settings" href="/admin">Admin portal</a>
+                {% else %}
+                {% endif %}
+
+                {% if current_user.site_metrics_viewer == "True" %}
+                <a class="btn btn--shaded btn--settings" href="/metrics">Metrics portal</a>
+                {% else %}
+                {% endif %}
+
+                {% if current_user.brand_ambassador == "True" %}
+                <a class="btn btn--shaded btn--settings" href="/brand_ambassador">Ambassador portal</a>
+                {% else %}
+                {% endif %}
+
+                <a class="btn btn--shaded btn--settings" href="/subscribe/manage_subscription">Manage subscription</a>
+                <a class="btn btn--shaded btn--settings" href="/utilities/user_settings/resend_verification_email">Resend Verification Email</a>
+                <a class="btn btn--shaded btn--settings" href="/utilities/user_settings/reset_mfa">Reset MFA</a>
+                <a class="btn btn--shaded btn--settings" href="/utilities/user_settings/delete_user/confirmation">Delete my account and all data</a>
+
+              </div>
+             </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

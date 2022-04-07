@@ -1,0 +1,63 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h3>Admin: View users by email address</h3>
+
+<form  method="POST">
+  {# This hidden_tag is a CSRF security feature. #}
+  {{ form.hidden_tag() }}
+
+  {{ form.form_entered_email_address.label }} {{form.form_entered_email_address}}
+  <br>
+  {{ form.submit() }}
+</form>
+
+{% if list_of_rows is not none %}
+  <br>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">user_id</th>
+        <th scope="col">identity_provider_sub_id</th>
+        <th scope="col">identity_provider</th>
+        <th scope="col">first_name</th>
+        <th scope="col">last_name</th>
+        <th scope="col">email_address</th>
+        <th scope="col">email_verified</th>
+        <th scope="col">timezone</th>
+        <th scope="col">geo_location</th>
+        <th scope="col">last_login_epoch</th>
+        <th scope="col">time_created_epoch</th>
+        <th scope="col">brand_ambassador</th>
+        <th scope="col">site_metrics_viewer</th>
+        <th scope="col">site_admin_full</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in list_of_rows %}
+      <tr>
+          <td>{{ row.user_id }}</td>
+          <td>{{ row.identity_provider_sub_id }}</td>
+          <td>{{ row.identity_provider }}</td>
+          <td>{{ row.first_name }}</td>
+          <td>{{ row.last_name }}</td>
+          <td>{{ row.email_address }}</td>
+          <td>{{ row.email_verified }}</td>
+          <td>{{ row.timezone }}</td>
+          <td>{{ row.geo_location }}</td>
+          <td>{{ row.last_login_epoch }}</td>
+          <td>{{ row.time_created_epoch }}</td>
+          <td>{{ row.brand_ambassador }}</td>
+          <td>{{ row.site_metrics_viewer }}</td>
+          <td>{{ row.site_admin_full }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <br><br>
+     <h2>No user rows, please enter email address </h2>
+{% endif %}
+
+{% endblock %}

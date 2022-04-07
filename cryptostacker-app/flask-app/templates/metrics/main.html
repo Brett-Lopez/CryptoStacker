@@ -1,0 +1,30 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h1>Metrics Portal</h1>
+<p>You're logged in as: {{email}}</p>
+
+<p>Admin links:</p>
+<a class="button" href="/metrics/user_metrics_table">User metrics table</a><br><br>
+<a class="button" href="/metrics/user_metrics_csv">User metrics CSV</a><br><br>
+<a class="button" href="/metrics/revenue_metrics_table">Revenue metrics table</a><br><br>
+<a class="button" href="/metrics/revenue_metrics_csv">Revenue metrics CSV</a><br><br>
+<a class="button" href="/metrics/user_payments_csv/previous_month_payments">User payments CSV: Previous month</a><br><br>
+<a class="button" href="/metrics/user_payments_csv/month_to_date_payments">User payments CSV:  Month to date</a><br><br>
+<a class="button" href="/metrics/user_payments_csv/previous_quarter_payments">User payments CSV: Previous quarter</a><br><br>
+<a class="button" href="/metrics/user_payments_csv/quarter_to_date_payments">User payments CSV: Quarter to date</a><br><br>
+<a class="button" href="/metrics/user_payments_csv/previous_year_payments">User payments CSV: Previous year</a><br><br>
+<a class="button" href="/metrics/user_payments_csv/year_to_date_payments">User payments CSV: Year to date</a><br><br>
+
+
+<p>Metrics yet to be built:</p>
+<a class="button" href="/metrics">Top 10 most active users</a><br><br>
+<a class="button" href="/metrics">Top 100 most active users</a><br><br>
+<a class="button" href="/metrics">Top 10 Brand Ambassadors by revenue</a><br><br>
+<a class="button" href="/metrics">Top 100 Brand Ambassadors by revenue</a><br><br>
+<a class="button" href="/metrics">Top 10 Brand Ambassadors by users</a><br><br>
+<a class="button" href="/metrics">Top 100 Brand Ambassadors by users</a><br><br>
+
+
+{% endblock %}

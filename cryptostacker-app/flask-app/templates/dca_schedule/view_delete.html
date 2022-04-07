@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+  <section class="section-hero section-hero-first-time">
+    <div class="hero">
+      <div class="hero-text-box">
+        <h2 class="heading-primary heading-primary-first-time">View {{digital_asset|upper}} DCA Schedule</h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-first-time-form">
+    <section class="section-first-time">
+      <div class="container">
+
+{% if list_of_schedule_info_to_display_to_user is not none %}   
+  <br>
+    <ul class="dca-schedule-list">
+    {% for schedule in list_of_schedule_info_to_display_to_user %}
+      <li class="form-timezone medium">{{ schedule }}</li>
+    {% endfor %}  
+    </ul>
+  <br><br>
+  <div class="set-sched-btn">
+  <a class="btn btn--shaded" href="/dca_scheduler/set/{{digital_asset}}">Set a new {{digital_asset|upper}} DCA schedule</a><br><br>
+  <br><br>
+    <p><a class="btn btn--shaded" href="/dca_scheduler/delete/{{digital_asset}}">Delete {{digital_asset|upper}} DCA schedule</a></p>
+  </div>
+{% else %}
+
+
+     <h2 class="api-set-alert api-set-alert-success">No DCA schedule set for {{digital_asset|upper}}</h2>
+
+     <br>
+     <div class="set-sched-btn">
+     <a class="btn btn--shaded" href="/dca_scheduler/set/{{digital_asset}}">Set {{digital_asset|upper}} DCA schedule</a>
+     </div>
+{% endif %}
+
+</div>
+</section>
+</section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base3.html" %}
+
+{% block content %}
+
+<h1>Admin Portal</h1>
+<p>You're logged in as: {{email}}</p>
+
+<p>Admin links:</p>
+
+<a class="button" href="/admin/view_all_users_by_email_address">View all users of a single email address</a><br><br>
+
+<a class="button" href="/admin/check_ba_referral_code_exists">Check if a brand_ambassador referral code exists</a><br><br>
+
+<a class="button" href="/admin/set_ba_referral_code">Set brand ambassador referral code</a><br><br>
+
+<a class="button" href="/admin/set_ba_smv_ev">Set brand_ambassador & site_metrics_viewer & email_verified</a><br><br>
+
+<a class="button" href="/admin/set_sub_tier_and_lock">Set subscription tier & admin lock</a><br><br>
+
+<a class="button" href="/admin/set_verification_status">Set verification status</a><br><br>
+
+<br>
+<a class="button" href="/admin/view_manage_subscription">View manage_subscription for a specific user_id</a><br><br>
+<a class="button" href="/admin/view_dca_logs">View a users DCA logs for user_id</a><br><br>
+<a class="button" href="/admin/view_dca_schedule_by_user_id/btc/1">View a users DCA schedule(s) for user_id</a><br><br>
+<a class="button" href="/admin/view_sub_status_row_by_user_id/1">View user_subscription_status row for user_id</a><br><br>
+<a class="button" href="/admin/brand_ambassador_metrics">View Brand Ambassador metrics portal for user_id</a><br><br>
+<br>
+<a class="button" href="/admin/delete_ba_referral_code">Delete brand ambassador referral code</a><br><br>
+<a class="button" href="/admin/delete_user_by_email">Delete user by email address</a><br><br>
+<a class="button" href="/admin/delete_user_by_user_id">Delete user by user ID</a><br><br>
+<a class="button" href="/admin/delete_and_block_user_by_email">Delete & block user by email address</a><br><br>
+<a class="button" href="/admin/delete_and_block_user_by_user_id">Delete & block user by user ID</a><br><br>
+<a class="button" href="/admin/delete_dca_schedule">Delete a users DCA schedule(s)</a><br><br>
+<a class="button" href="/admin/delete_api_keys">Delete a users API key(s)</a><br><br>
+<a class="button" href="/admin/delete_dca_logs">Delete a users DCA logs</a><br><br>
+<a class="button" href="/admin/debug_api_keys_by_user_id">Are API keys set for each exchange by user_id</a><br><br>
+
+<a class="button" href="#/admin/">generate pending payment for a specific user_id (todo)</a><br><br>
+<a class="button" href="#/admin/">reset user mfa (todo)</a><br><br>
+
+<br><br>
+<p>User links:</p>
+<a class="button" href="/set_api_keys">API Keys</a><br><br>
+<a class="button" href="/dca_scheduler">DCA Scheduler</a><br><br>
+<a class="button" href="/utilities/dca_calculator">DCA Calculator</a><br><br>
+<a class="button" href="/utilities/dca_logs">DCA logs</a><br><br>
+<a class="button" href="/utilities/user_settings">user settings (timezone, delete account)</a><br><br>
+<a class="button" href="/utilities/first_time_login_landing_page">first time login landing page</a><br><br>
+<a class="button" href="/subscribe/manage_subscription">Manage Subscription</a><br><br>
+<a class="button" href="/utilities/newsletter">newsletter</a><br><br>
+<a class="button" href="/blog">blog (FAQ, guides, documentation, etc)</a><br><br>
+<a class="button" href="/admin">Admin portal</a><br><br>
+<a class="button" href="/brand_ambassador">Brand Ambassador Portal</a><br><br>
+
+
+{% endblock %}
